@@ -7,7 +7,29 @@
 #         20 90 hola jiji 77
 #La salida debe ser
 #         (77, 'jiji', 'hola', 90, 20)
-t = tuple(input().split())
+
+
+
+# convierte elementos de una lista tipo "34" a int
+#                                        y  tipo "34.5" a float
+def convertirElementosDeLista(lista):
+    nueva_lista = []
+    for elemento in lista:
+        try:
+            # Si es int
+            nuevo_elemento = int(elemento)
+        except ValueError:
+            try:
+                # Si es float
+                nuevo_elemento = float(elemento)
+            except ValueError:
+                # Si es string
+                nuevo_elemento = elemento
+        nueva_lista.append(nuevo_elemento)
+    return nueva_lista
+
+
+t = convertirElementosDeLista(input().split())
 
 t_inverso = tuple(t[::-1])
 
